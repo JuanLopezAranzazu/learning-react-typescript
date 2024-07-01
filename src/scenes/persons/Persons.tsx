@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RawPerson } from "./../types/Person";
-import { SearchablePersonList } from "./../components/SearchablePersonList";
+import { RawPerson } from "./../../types/Person";
+import { SearchablePersonList } from "./../../components/persons/SearchablePersonList";
 
 type PersonsProps = {
   onDelete: (id: string) => void;
@@ -21,7 +21,7 @@ export const Persons = ({ persons, onDelete }: PersonsProps) => {
       <button type="button" onClick={handleClick}>
         {state ? "Ocultar" : "Mostrar"}
       </button>
-      <button type="button" onClick={() => navigate("/add")}>
+      <button type="button" onClick={() => navigate("/persons/add")}>
         Crear Persona
       </button>
       {state && <SearchablePersonList persons={persons} onDelete={onDelete} />}

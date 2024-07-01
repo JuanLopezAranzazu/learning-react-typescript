@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { PersonForm } from "../components/PersonForm";
-import { PersonData, RawPerson } from "../types/Person";
+import { PersonForm } from "../../components/persons/PersonForm";
+import { PersonData, RawPerson } from "../../types/Person";
 
 type PersonEditProps = {
   onSubmit: (id: string, data: PersonData) => void;

@@ -1,5 +1,5 @@
-import { PersonForm } from "../components/PersonForm";
-import { PersonData } from "../types/Person";
+import { PersonForm } from "../../components/persons/PersonForm";
+import { PersonData } from "../../types/Person";
 
 type PersonAddProps = {
   onSubmit: (data: PersonData) => void;
