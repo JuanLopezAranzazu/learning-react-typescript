@@ -1,24 +1,28 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { PersonData } from "./../../types/Person";
+import { CategoryData } from "./../../types/Category";
 
-type PersonFormProps = {
-  onSubmit: (data: PersonData) => void;
-} & Partial<PersonData>;
+type CategoryFormProps = {
+  onSubmit: (data: CategoryData) => void;
+} & Partial<CategoryData>;
 
 type FormErrors = {
   name: string;
 };
 
-// Componente para mostrar un formulario de persona
-export const PersonForm = ({ onSubmit, name = "" }: PersonFormProps) => {
-  const [formValues, setFormValues] = useState<PersonData>({
-    name: name ? name : "",
+// Componente para mostrar un formulario de categoría
+export const CategoryForm = ({ onSubmit, name = "" }: CategoryFormProps) => {
+  const [formValues, setFormValues] = useState<CategoryData>({
+    name: name || "",
   });
-  const [formErrors, setFormErrors] = useState<FormErrors>({ name: "" });
+  const [formErrors, setFormErrors] = useState<FormErrors>({
+    name: "",
+  });
   const navigate = useNavigate();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
 

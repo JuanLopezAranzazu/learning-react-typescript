@@ -4,15 +4,13 @@ export enum Priority {
   HIGH = "ALTA",
 }
 
-export type RawNote = {
-  id: string;
-  title: string;
-  description: string;
-  priority: Priority;
-};
-
 export type NoteData = {
   title: string;
   description: string;
   priority: Priority;
+  categoryId: string;
 };
+
+export type RawNote = {
+  id: string;
+} & NoteData;

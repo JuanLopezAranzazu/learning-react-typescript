@@ -5,11 +5,11 @@ export const Home = () => {
   return (
     <div>
       <h1>Bienvenido</h1>
-      <button type="button" onClick={() => navigate("/persons")}>
-        Personas
-      </button>
       <button type="button" onClick={() => navigate("/notes")}>
         Notas
+      </button>
+      <button type="button" onClick={() => navigate("/categories")}>
+        Categorias
       </button>
     </div>
   );

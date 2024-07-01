@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NoteData, Priority } from "./../../types/Note";
+import { RawCategory } from "./../../types/Category";
 
 type NoteFormProps = {
   onSubmit: (data: NoteData) => void;
+  categories: RawCategory[];
 } & Partial<NoteData>;
 
 type FormErrors = {
@@ -17,11 +19,14 @@ export const NoteForm = ({
   title = "",
   description = "",
   priority = Priority.MEDIUM,
+  categoryId = "",
+  categories,
 }: NoteFormProps) => {
   const [formValues, setFormValues] = useState<NoteData>({
     title: title || "",
     description: description || "",
     priority: priority || Priority.MEDIUM,
+    categoryId: categoryId || "",
   });
   const [formErrors, setFormErrors] = useState<FormErrors>({
     title: "",
@@ -99,6 +104,20 @@ export const NoteForm = ({
           <option value={Priority.LOW}>{Priority.LOW}</option>
           <option value={Priority.MEDIUM}>{Priority.MEDIUM}</option>
           <option value={Priority.HIGH}>{Priority.HIGH}</option>
+        </select>
+      </div>
+      <div>
+        <select
+          value={formValues.categoryId}
+          name="categoryId"
+          onChange={handleChange}
+        >
+          <option value="">Seleccione una categoría</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
         </select>
       </div>
       <button type="submit">Guardar</button>

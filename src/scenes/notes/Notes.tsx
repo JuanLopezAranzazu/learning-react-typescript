@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RawNote, Priority } from "./../../types/Note";
+import { RawCategory } from "../../types/Category";
 import { NoteList } from "./../../components/notes/NoteList";
 
 type NotesProps = {
   onDelete: (id: string) => void;
   notes: RawNote[];
+  categories: RawCategory[];
 };
 
 // Componente para mostrar y filtrar la lista de notas
-export const Notes = ({ notes, onDelete }: NotesProps) => {
+export const Notes = ({ notes, categories, onDelete }: NotesProps) => {
   const [selectedPriority, setSelectedPriority] = useState<Priority | "ALL">(
     "ALL"
   );
@@ -38,7 +40,11 @@ export const Notes = ({ notes, onDelete }: NotesProps) => {
           <option value={Priority.HIGH}>{Priority.HIGH}</option>
         </select>
       </div>
-      <NoteList notes={filteredNotes} onDelete={onDelete} />
+      <NoteList
+        notes={filteredNotes}
+        categories={categories}
+        onDelete={onDelete}
+      />
     </>
   );
 };
