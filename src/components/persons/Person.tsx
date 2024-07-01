@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { RawPerson } from "../types/Person";
+import { RawPerson } from "./../../types/Person";
 
 type PersonProps = {
   onDelete: (id: string) => void;
@@ -10,7 +10,7 @@ type PersonProps = {
 export const Person = ({ person, onDelete }: PersonProps) => {
   return (
     <div>
-      <Link to={`/edit/${person.id}`}>
+      <Link to={`/persons/edit/${person.id}`}>
         <h1>{person.name}</h1>
       </Link>
       <button type="button" onClick={() => onDelete(person.id)}>

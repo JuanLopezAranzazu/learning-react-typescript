@@ -1,4 +1,4 @@
-import { RawPerson } from "../types/Person";
+import { RawPerson } from "../../types/Person";
 import { Person } from "./Person";
 
 type PersonListProps = {

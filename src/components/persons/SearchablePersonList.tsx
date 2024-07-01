@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RawPerson } from "../types/Person";
+import { RawPerson } from "./../../types/Person";
 import { PersonList } from "./PersonList";
 
 type SearchablePersonListProps = {
