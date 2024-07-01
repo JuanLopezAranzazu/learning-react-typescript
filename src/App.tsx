@@ -14,6 +14,8 @@ import { Home } from "./scenes/Home";
 import { v4 as uuidV4 } from "uuid";
 import { PersonData, RawPerson } from "./types/Person";
 import { NoteData, RawNote, Priority } from "./types/Note";
+// hooks
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 const arrayPersons: RawPerson[] = [
   {
@@ -52,8 +54,11 @@ const arrayNotes: RawNote[] = [
 ];
 
 function App() {
-  const [persons, setPersons] = useState<RawPerson[]>(arrayPersons);
-  const [notes, setNotes] = useState<RawNote[]>(arrayNotes);
+  const [persons, setPersons] = useLocalStorage<RawPerson[]>(
+    "PERSONS",
+    arrayPersons
+  );
+  const [notes, setNotes] = useLocalStorage<RawNote[]>("NOTES", arrayNotes);
 
   // Funcion para agregar una persona
   const onAddPerson = (data: PersonData) => {
