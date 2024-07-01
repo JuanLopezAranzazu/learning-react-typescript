@@ -1,0 +1,8 @@
+npm i
+
+devDependencies
+
+dependencies
+
+npm i uuid
+npm i react-router-dom
